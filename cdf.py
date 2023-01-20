@@ -5,6 +5,7 @@ Color distortion Filtering preprocessing step for POS.
 """
 
 import numpy as np
+from numpy import mat
 from numpy.linalg import inv
 import math
 #import scipy.io
@@ -24,5 +25,5 @@ def CDF(C, B):
     C = C__.astype(np.float)
     return C
     
-#C = mat['C']
-#CDF(C)
+# C = mat['C']
+# CDF(C)

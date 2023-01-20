@@ -20,10 +20,12 @@ class FaceSegGPU:
     def get_mask(self, images, shape):
         # images = Variable(torch.tensor(images, dtype=torch.float,requires_grad=False).to(device=self.device))
         pred = self.net(images)
+        # print("pred :",pred)
         pred= torch.nn.functional.interpolate(pred, size=[shape[1], shape[2]])
         pred = pred.squeeze()
         mask = (pred > 0.8)
         segmentation = mask.cpu().numpy()
+        # print("segmentation :", segmentation.astype('float'))
         return segmentation.astype('float')
 
     def apply_masks(self, frames_transformed, frames):

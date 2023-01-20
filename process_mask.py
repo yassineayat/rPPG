@@ -142,6 +142,8 @@ class ProcessMasks():
         """
         np.save('hrs', np.array(self.hrs))
         np.save('fft_spec', np.array(self.pulse.fft_spec))
+        print('hrs', np.array(self.hrs))
+        print('fft_spec', np.array(self.pulse.fft_spec))
 
     def savePlot(self, path):
         if self.save_results == False:

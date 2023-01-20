@@ -18,14 +18,17 @@ class DynamicPlot():
         
         self.pulse_to_plot = np.zeros(self.signal_size)
         self.hrs_to_plot = np.zeros(self.signal_size)
+        # self.rgb_to_plot = np.zeros(self.signal_size)
 
         self.hr_texts = self.pulse_ax.text(0.1, 0.9,'0', ha='center', va='center', transform=self.pulse_ax.transAxes)
         self.pulse_ax.set_title('BVP')
         self.hr_axis.set_title('Heart Rate')
+        # self.rgb_axis.set_title('color')
         self.pulse_ax.set_autoscaley_on(True)
 
         self.pulse_ax.plot(self.pulse_to_plot)
         self.hr_axis.plot(self.hrs_to_plot)
+        # self.rgb_axis.plot(self.rgb_to_plot)
 
         self.pulse_ax.set_ylim(-3,3)
         self.hr_axis.set_ylim(0,180)
@@ -93,8 +96,10 @@ class DynamicPlot():
         axis.relim()
         axis.autoscale_view()
     def re_draw(self):
+        #print(self.fig.canvas.tostring_rgb())
         self.fig.canvas.draw()
         self.fig.canvas.flush_events()
+
     
     def terminate(self):
         """
